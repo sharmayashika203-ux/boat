@@ -117,7 +117,8 @@ body {
 
 /* ================= NIRVANA ================= */
 .nirvana {
-  height: 90vh;
+  height: auto;
+  width: 100%;
   background: #000;
 }
 
