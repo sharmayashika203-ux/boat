@@ -4,10 +4,17 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
 
 body {
-  background: #f5f5f5;
+  background: #12010100;
   color: #111;
+  overflow-x: hidden;
 }
 
 /* ================= TOP BAR ================= */
@@ -56,32 +63,23 @@ body {
 
 /* ================= HERO ================= */
 .hero {
-  height: 100vh;
-  background: linear-gradient(to right, #000, #0a3d2e);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  margin-bottom: 100px;
+  overflow: hidden;
 }
 
 .hero img {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: auto;
   object-fit: cover;
+  display: block;
 }
-
-.hero button {
-  position: absolute;
-  bottom: 80px;
-  padding: 12px 32px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
 /* ================= SECTIONS ================= */
 .section {
   padding: 60px 40px;
+  background: #f5f5f5;
+  position: relative;
+  z-index: 2;
 }
 
 .section h2 {
@@ -94,6 +92,7 @@ body {
   display: flex;
   gap: 20px;
   overflow-x: auto;
+  padding-bottom: 10px ;
 }
 
 .cards::-webkit-scrollbar {
@@ -101,7 +100,7 @@ body {
 }
 
 .cards div {
-  min-width: 260px;
+  min-width: 220px;
   background: #fff;
   border-radius: 16px;
   padding: 15px;
@@ -167,6 +166,8 @@ body {
 .bestsellers {
   display: flex;
   gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
 }
 
 .bestsellers div {
@@ -184,19 +185,110 @@ body {
   margin-bottom: 10px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 768px) {
+
+  /* NAVBAR */
   .navbar {
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 12px;
   }
 
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .navbar nav a {
+    font-size: 13px;
+  }
+
+  .navbar input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* HERO */
+  .hero {
+    height: 60vh;
+  }
+
+  .hero img {
+    height: 60vh;
+  }
+
+  .hero button {
+    bottom: 30px;
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  /* SECTIONS */
   .section {
     padding: 40px 20px;
   }
 
-  .categories,
+  .section h2 {
+    font-size: 20px;
+  }
+
+  /* CARDS (Sale + Deals) */
+  .cards div {
+    min-width: 200px;
+  }
+
+  .product-card {
+    height: 160px;
+  }
+
+  /* NIRVANA */
+  .nirvana {
+    height: 50vh;
+  }
+
+  /* CATEGORIES */
+  .categories {
+    overflow-x: auto;
+  }
+
+  .categories img {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* BESTSELLERS */
   .bestsellers {
     overflow-x: auto;
+  }
+
+  .big-card {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* ================= SMALL DEVICES ================= */
+@media (max-width: 480px) {
+
+  .top-bar {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .navbar nav a {
+    font-size: 12px;
+  }
+
+  .hero button {
+    font-size: 13px;
+    padding: 8px 20px;
   }
 }
